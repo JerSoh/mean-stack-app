@@ -1,0 +1,30 @@
+<mat-card>
+  <form (submit)="onAddRecipe(recipeForm)" #recipeForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="recipeName"
+        ngModel
+        placeholder="Recipe Name"
+        required
+        #recipeNameInput="ngModel">
+        <mat-error *ngIf="recipeNameInput.invalid">Please enter a recipe name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="content"
+        ngModel
+        placeholder="Recipe Content"
+        required
+        #contentInput="ngModel"></textarea>
+        <mat-error *ngIf="contentInput.invalid">Please enter content.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Recipe</button>
+  </form>
+</mat-card>
