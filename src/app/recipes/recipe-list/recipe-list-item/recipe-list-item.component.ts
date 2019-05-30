@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
+import { RecipesService } from '../../recipes.service';
 
 @Component({
   selector: 'app-recipe-list-item',
@@ -9,9 +10,13 @@ import { Recipe } from '../../recipe.model';
 export class RecipeListItemComponent implements OnInit {
   @Input() recipeItem: Recipe;
 
-  constructor() { }
+  constructor(public recipeSvc: RecipesService) { }
 
   ngOnInit() {
+  }
+
+  onDelete(recipeId: string) {
+    this.recipeSvc.deleteRecipe(recipeId);
   }
 
 }

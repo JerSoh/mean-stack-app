@@ -6,5 +6,9 @@
     <mat-card-content>
       <p>{{ recipeItem.content }}</p>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">EDIT</button>
+      <button mat-button color="warn" (click)="onDelete(recipeItem.id)">DELETE</button>
+    </mat-card-actions>
   </mat-card>
 </section>
