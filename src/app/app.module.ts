@@ -12,6 +12,7 @@ import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.com
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeListItemComponent } from './recipes/recipe-list/recipe-list-item/recipe-list-item.component';
 import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MaterialModule } from './material.module';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
 
   ],
   providers: [],

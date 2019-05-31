@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS"
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
   );
   next();
 });
@@ -45,6 +45,17 @@ app.post("/api/recipes", (req, res, next) => {
   });
 });
 
+app.put('/api/recipes/:id', (req, res, next) => {
+  const recipe = new Recipe({
+    _id: req.body.id,
+    recipeName: req.body.recipeName,
+    content: req.body.content
+  });
+  Recipe.updateOne({_id: req.params.id}, recipe).then(result => {
+    res.status(200).json({ message: 'Update successfully' });
+  })
+});
+
 app.get('/api/recipes', (req, res, next) => {
   Recipe.find().then(documents => {
     res.status(200).json({
@@ -53,6 +64,18 @@ app.get('/api/recipes', (req, res, next) => {
     });
   });
 });
+
+app.get('/api/recipes/:id', (req, res, next) => {
+  Recipe.findById(req.params.id).then(recipe => {
+    if (recipe) {
+      res.status(200).json(recipe);
+    } else {
+      res.status(404).json({message: 'Recipe not found!'});
+    }
+  })
+});
+
+
 
 app.delete('/api/recipes/:id', (req, res, next) => {
   Recipe.deleteOne({_id: req.params.id}).then(result => {

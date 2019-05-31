@@ -1,11 +1,11 @@
 <mat-card>
-  <form (submit)="onAddRecipe(recipeForm)" #recipeForm="ngForm">
+  <form (submit)="onSaveRecipe(recipeForm)" #recipeForm="ngForm">
     <mat-form-field>
       <input
         matInput
         type="text"
         name="recipeName"
-        ngModel
+        [ngModel]="recipe?.recipeName"
         placeholder="Recipe Name"
         required
         #recipeNameInput="ngModel">
@@ -16,7 +16,7 @@
         matInput
         rows="4"
         name="content"
-        ngModel
+        [ngModel]="recipe?.content"
         placeholder="Recipe Content"
         required
         #contentInput="ngModel"></textarea>
