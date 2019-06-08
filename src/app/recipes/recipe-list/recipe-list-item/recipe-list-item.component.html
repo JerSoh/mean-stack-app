@@ -3,6 +3,7 @@
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title>{{ recipeItem.recipeName }}</mat-card-title>
     </mat-card-header>
+    <img mat-card-image [src]="recipeItem.imagePath" [alt]="recipeItem.recipeName">
     <mat-card-content fxLayoutAlign="center center">
       <p>{{ recipeItem.content }}</p>
     </mat-card-content>
